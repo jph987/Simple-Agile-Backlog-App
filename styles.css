@@ -1,0 +1,200 @@
+/* Theme variables */
+:root {
+  /* light theme defaults */
+  --bg-body: #f9fafb;
+  --bg-navbar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+}
+
+body.dark {
+  --bg-body: #0b1220;
+  --bg-navbar: #0f172a;
+  --bg-card: #111827;
+  --bg-card-border: #374151;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+}
+
+/* Base styles */
+body {
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+.navbar,
+.offcanvas {
+  background: var(--bg-navbar);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+}
+
+.card-body,
+.card-header,
+.col-head {
+  color: var(--text-main);
+}
+
+.small-muted {
+  color: var(--text-muted);
+}
+
+/* Backlog tree */
+.tree ul {
+  list-style: none;
+  padding-left: 1rem;
+  border-left: 1px dashed #374151;
+}
+
+.tree li {
+  margin: 4px 0;
+  padding-left: .25rem;
+}
+
+.wi {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.wi .badge {
+  text-transform: capitalize;
+}
+
+/* Collapsible twisty */
+.twisty {
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
+  border-radius: .25rem;
+  background: var(--bg-body);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: .8rem;
+  user-select: none;
+}
+
+.twisty.collapsed {
+  color: #64748b;
+}
+
+.twisty.placeholder {
+  border-color: transparent;
+  color: transparent;
+  cursor: default;
+}
+
+/* Sortable lists */
+.sortable-siblings {
+  min-height: 8px;
+}
+
+/* Kanban layout: full width grid + full height board */
+.kanban {
+  display: grid;                 /* columns set via JS: repeat(n, 1fr) */
+  gap: 1rem;
+  overflow: hidden;              /* prevent outer scroll; inner zones scroll */
+  height: 0;                     /* actual px height set via JS */
+}
+
+.kanban-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;                  /* allow shrinking inside grid */
+  /* remove any previous fixed min-width (e.g., 280px) */
+}
+
+.kanban-col .col-head {
+  flex: 0 0 auto;
+  background: var(--bg-body);
+  padding: .5rem;
+  border-bottom: 1px solid var(--bg-card-border);
+}
+
+.kanban-col .dropzone {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;                /* internal scroll per column */
+  padding: .5rem;
+  border: 1px dashed #334155;
+  border-radius: .5rem;
+}
+
+.kanban-card {
+  cursor: grab;
+}
+/* Light mode navbar fix */
+body:not(.dark) .navbar {
+  background: var(--bg-navbar);
+}
+
+body:not(.dark) .navbar .nav-link,
+body:not(.dark) .navbar .navbar-brand,
+body:not(.dark) .navbar .navbar-text {
+  color: var(--text-main);
+}
+
+body:not(.dark) .navbar .btn-outline-light {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+body:not(.dark) .navbar .btn-outline-light:hover {
+  background-color: var(--text-main);
+  color: #fff;
+}
+
+body.dark .navbar {
+  background: var(--bg-navbar);
+}
+
+body.dark .navbar .nav-link,
+body.dark .navbar .navbar-brand,
+body.dark .navbar .navbar-text {
+  color: var(--text-main);
+}
+
+body.dark .navbar .btn-outline-light {
+  color: #f9fafb;
+  border-color: #f9fafb;
+}
+
+body.dark .navbar .btn-outline-light:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+/* Global light-mode fix for outline-light buttons (cards, headers, anywhere) */
+body:not(.dark) .btn-outline-light {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+body:not(.dark) .btn-outline-light:hover,
+body:not(.dark) .btn-outline-light:focus {
+  background-color: var(--text-main);
+  color: #fff;
+  border-color: var(--text-main);
+}
+/* Dark-mode fix for outline-dark (optional) */
+body.dark .btn-outline-dark {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+body.dark .btn-outline-dark:hover,
+body.dark .btn-outline-dark:focus {
+  background-color: var(--text-main);
+  color: #111827;
+}
+.customdrpdown{
+  max-width: 200px;
+}
